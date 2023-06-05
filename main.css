@@ -13,7 +13,7 @@ body{
     background-color: black; 
 }
 
-body::before {    
+body::before{    
     content: "";
     background-image: url('https://assets-global.website-files.com/5fac161927bf86485ba43fd0/6229d40f625c70840c12bcd7_BlogGif_2.gif');
     background-size: cover;
@@ -67,8 +67,16 @@ height: 100vh;
     margin-right: -25px;
     width: 50px;
     height: 50px;
-    color: #3B45EF;
+    color: white;
 } 
+
+.fa-heart:hover{
+color: red;
+}
+
+.fa-heart:active{
+    color: red;   
+}
 
 .progress-container {
     display: flex;
@@ -93,3 +101,47 @@ height: 100vh;
     right: 0;
     margin-top: 10px;
 }
+
+.controls{
+    display: flex;
+    justify-content: space-evenly;
+    width: 60%;
+    margin-top: 30px;
+    color: rgb(98, 97, 97);
+}
+
+.controls :hover{
+    color: white;
+    cursor: pointer;
+}
+
+.img {
+    --f: 0.1;
+    /* the parallax factor (the smaller the better) */
+    --r: 10px;
+    /* radius */
+  
+    --_f: calc(100% * var(--f) / (1 + var(--f)));
+    --_a: calc(90deg * var(--f));
+    width: 300px;
+    /* the image size */
+    aspect-ratio: calc(1 + var(--f));
+    object-fit: cover;
+    clip-path: inset(0 var(--_f) 0 0 round var(--r));
+    transform: perspective(400px) var(--_t, rotateY(var(--_a)));
+    transition: 0.5s;
+    cursor: pointer;
+  }
+  
+  .img:hover {
+    clip-path: inset(0 0 0 var(--_f) round var(--r));
+    --_t: translateX(calc(-1 * var(--_f))) rotateY(calc(-1 * var(--_a)));
+  }
+
+  #pause{
+    display: none;
+  }
+
+  #play{
+    display: flex;
+  }
