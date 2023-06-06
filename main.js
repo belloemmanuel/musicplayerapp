@@ -2,7 +2,6 @@ let cover = document.getElementById('cover')
 let musicDescription = document.getElementById('music-description')
 let heart = document.getElementById('heart')
 let audio = document.getElementById('audio')
-let progress = document.getElementById('progress')
 let shuffle = document.getElementById('shuffle')
 let prev = document.getElementById('backward')
 let play = document.getElementById('play')
@@ -11,6 +10,8 @@ let musicTime = document.getElementById('music-time')
 let playerBg = document.getElementById('player-bg')
 let artiste = document.getElementById('artiste')
 let title = document.getElementById('title')
+let randomBtn = document.getElementById('random')
+const progress = document.getElementById('progress');
 const progressContainer = document.getElementById('progress-container');
 
 
@@ -64,6 +65,32 @@ const prevSong = () =>{
     playSong()
 }
 
+let updateProgress = (e) => {
+    const { duration, currentTime } = e.srcElement;
+    const progressPercent = (currentTime / duration) * 100;
+    progress.style.width = `${progressPercent}%`;
+};
+
+let setProgress = (e) => {
+    const width = progressContainer.clientWidth;
+    const clickX = e.offsetX;
+    const duration = audio.duration;
+    audio.currentTime = (clickX / width) * duration;
+};
+
+let randomFunc = () => {
+    let randomNumber = Math.floor(Math.random() * songs.length);
+    song = songs[randomNumber]
+    defaultSong()
+    playSong();
+};
+randomBtn.addEventListener("click", randomFunc);
+
+audio.addEventListener("ended", nextSong);
+
+
+progressContainer.addEventListener("click", setProgress);
+audio.addEventListener("timeupdate", updateProgress);
 
 pause.addEventListener('click', pauseSong)
 play.addEventListener('click', playSong)

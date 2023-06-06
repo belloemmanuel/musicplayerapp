@@ -100,7 +100,6 @@ color: red;
 
 .progress{
     display: flex;
-    width: 20%;
     height: 4px;
     background-color: rgb(240, 202, 49);
     border-radius: 50px;
