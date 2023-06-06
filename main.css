@@ -10,7 +10,7 @@
 body{
     display: flex;
     justify-content: center;
-    background-color: rgb(20, 21, 22); 
+    background-color: rgb(2, 2, 2); 
     position: relative;
 }
 
@@ -66,13 +66,13 @@ body{
 }
 
 
-.music-status{
+/* .music-status{
     display: flex;
     color: white;
     justify-content: space-around;
     width: 100%;
     margin-top: 20px;
-}
+} */
 
 .music-description{
     display: flex;
@@ -128,7 +128,7 @@ color: red;
 }
 
 .controls :hover{
-    color: white;
+    color:  rgb(240, 202, 49);;
     cursor: pointer;
 }
 
@@ -163,4 +163,30 @@ color: red;
 
   #play{
     display: flex;
+    border-radius: 50%;
+  }
+
+ 
+  @media (max-width: 680px) {
+    .player-header {
+        color: white;
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        padding-top: 20px;
+        padding-bottom: 35px;
+    }
+    
+    .progress-container {
+        display: flex;
+        justify-content: start;
+        background: rgb(78, 77, 77);
+        border-radius: 5px;
+        cursor: pointer;
+        height: 4px;
+        width: 80%;
+        border-radius: 10px;
+        position: relative;
+    }
+
   }
